@@ -164,6 +164,25 @@ const faqs = [
       name="description"
       content="Denofix repairs, upgrades and builds PCs and laptops. Free diagnostic, fixed quote before any work, warranty on every repair. Mail-in and walk-in."
     />
+    <link rel="canonical" href={new URL('/', Astro.site).href} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Denofix" />
+    <meta property="og:title" content="Denofix — PC & Laptop Repair Specialist" />
+    <meta
+      property="og:description"
+      content="Free diagnostic, fixed quote before any work, warranty on every repair. Laptop and desktop repair, data recovery and custom PC builds in Malaysia."
+    />
+    <meta property="og:url" content={new URL('/', Astro.site).href} />
+    <meta property="og:image" content={new URL('/images/og.png', Astro.site).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Denofix — PC & Laptop Repair Specialist" />
+    <meta
+      name="twitter:description"
+      content="Free diagnostic, fixed quote before any work, warranty on every repair. Laptop and desktop repair, data recovery and custom PC builds in Malaysia."
+    />
+    <meta name="twitter:image" content={new URL('/images/og.png', Astro.site).href} />
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
