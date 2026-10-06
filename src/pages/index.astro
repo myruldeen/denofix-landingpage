@@ -1,0 +1,951 @@
+---
+import '../styles/global.css';
+
+const nav = [
+  { href: '#services', label: 'Services' },
+  { href: '#process', label: 'Process' },
+  { href: '#pricing', label: 'Pricing' },
+  { href: '#faq', label: 'FAQ' },
+  { href: '#contact', label: 'Contact' }
+];
+
+const services = [
+  {
+    n: '01',
+    title: 'Laptop Repair',
+    img: '/images/svc-laptop.jpg',
+    body: 'Screen, hinge, keyboard, battery and charging port replacement, plus no-power and no-display faults.',
+    tags: 'MacBook · Gaming · Ultrabook · Business'
+  },
+  {
+    n: '02',
+    title: 'PC & Desktop Repair',
+    img: '/images/svc-desktop.jpg',
+    body: 'Part replacement, motherboard-level repair and no-boot troubleshooting for desktops and all-in-ones.',
+    tags: 'Custom PC · iMac · AIO · Workstation'
+  },
+  {
+    n: '03',
+    title: 'Upgrades & SSD Installs',
+    img: '/images/svc-upgrade.jpg',
+    body: 'SSD and RAM upgrades, thermal paste, Windows or macOS reinstalls, drivers and a full health check after.',
+    tags: 'Same-day on most upgrades'
+  },
+  {
+    n: '04',
+    title: 'Data Recovery',
+    img: '/images/svc-data.jpg',
+    body: 'Sector repair and data recovery from hard disks, SSDs, pendrives and memory cards, including clicking drives.',
+    tags: 'HDD · SSD · USB · Memory card'
+  },
+  {
+    n: '05',
+    title: 'Custom PC Builds',
+    img: '/images/svc-custom.jpg',
+    body: 'Full builds for office, gaming or editing. Part-picked to your budget, assembled, stress-tested and documented.',
+    tags: 'Parts sourced and tested'
+  },
+  {
+    n: '06',
+    title: 'Office & Small Business',
+    img: '/images/svc-office.jpg',
+    body: 'Workstation setup, backups, network fixes and an ongoing maintenance plan so your team stops losing hours to broken machines.',
+    tags: 'On-site or drop-off'
+  }
+];
+
+const gallery = [
+  { src: '/images/shop-1.jpg', caption: 'Bench diagnostics' },
+  { src: '/images/shop-2.jpg', caption: 'Component-level soldering' },
+  { src: '/images/shop-3.jpg', caption: 'Disassembly & part swaps' },
+  { src: '/images/shop-4.jpg', caption: 'Motherboard repair' }
+];
+
+const steps = [
+  {
+    title: 'Tell us what is wrong',
+    body: 'Walk in, send a message, or post the device to us. A short description and a photo of the fault is enough to start.'
+  },
+  {
+    title: 'Free diagnostic, fixed quote',
+    body: 'We find the actual cause first, then send you a fixed price in writing. No hourly billing, no surprise invoice.'
+  },
+  {
+    title: 'We fix it, only once you approve',
+    body: 'Nothing is touched until you say go. If a repair is not worth the cost, we tell you that instead of taking the job.'
+  },
+  {
+    title: 'Tested, then collect or ship back',
+    body: 'Every machine is stress-tested before it leaves. Collect in person or we post it back, with a warranty on the work.'
+  }
+];
+
+const plans = [
+  {
+    name: 'Diagnostic & Software',
+    price: 'from RM 80',
+    best: 'Slow, infected or broken software',
+    points: [
+      'Full diagnostic before quoting',
+      'Virus and malware removal',
+      'OS reinstall and driver setup',
+      'Tune-up and health check report'
+    ],
+    featured: false
+  },
+  {
+    name: 'Parts & Replacement',
+    price: 'quoted per model',
+    best: 'Screens, batteries, keyboards, hinges',
+    points: [
+      'Fixed labour price, parts at cost',
+      'Compatible parts sourced for you',
+      'Original or premium alternatives',
+      'Warranty on parts and workmanship'
+    ],
+    featured: true
+  },
+  {
+    name: 'Board-Level Repair',
+    price: 'from RM 200',
+    best: 'No power, shorts, dead machines',
+    points: [
+      'Component-level troubleshooting',
+      'Short circuits and power rails',
+      'BGA and chip replacement',
+      'Data preserved where possible'
+    ],
+    featured: false
+  }
+];
+
+const faqs = [
+  {
+    q: 'How much does a repair cost?',
+    a: 'Diagnostics are free. Once we know the cause you get a fixed price in writing before anything starts. Screen and battery jobs depend on the model, software work starts from RM 80, and board-level repair starts from RM 200.'
+  },
+  {
+    q: 'How long will it take?',
+    a: 'Most software jobs and common part replacements are done the same day or next day. Board-level repairs and parts that have to be ordered usually take a few days. You get a realistic timeline with the quote, and we message you if anything changes.'
+  },
+  {
+    q: 'Do you handle data privacy?',
+    a: 'Yes. Your files stay on your machine unless recovery work requires otherwise, and we do not browse personal data. If a drive is failing, recovering your data comes before anything else.'
+  },
+  {
+    q: 'Can I post my device to you?',
+    a: 'Yes. Pack the device well, include a note with your contact details and the fault, and send it over. We quote before repairing and post it back once it is tested.'
+  },
+  {
+    q: 'What warranty do I get?',
+    a: 'Every repair carries a warranty on the workmanship and on the fitted parts. If the same fault returns within the warranty period, we fix it again at no charge.'
+  },
+  {
+    q: 'What if the machine is not worth fixing?',
+    a: 'We will say so. You get the diagnostic, an honest cost-versus-value answer, and options: repair, upgrade, or data recovery only. No pressure to go ahead.'
+  }
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Denofix — PC & Laptop Repair Specialist</title>
+    <meta
+      name="description"
+      content="Denofix repairs, upgrades and builds PCs and laptops. Free diagnostic, fixed quote before any work, warranty on every repair. Mail-in and walk-in."
+    />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#2563eb" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Denofix home">
+          <img class="brand-logo" src="/images/logo-mark-128.png" alt="" width="128" height="128" />
+          Denofix
+        </a>
+        <nav class="nav" aria-label="Main">
+          {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+        <a class="btn btn-primary header-cta" href="#contact">Get a quote</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">PC & laptop specialists · Malaysia</span>
+            <h1>Broken laptop or PC?<br />We fix it properly — quote first.</h1>
+            <p class="lead">
+              Denofix repairs, upgrades and builds computers. Free diagnostic, a fixed
+              price in writing before any work starts, and nothing touched on your
+              machine without your approval.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Get a free quote →</a>
+              <a class="btn btn-ghost" href="#pricing">See pricing</a>
+            </div>
+            <ul class="hero-points">
+              <li>Free diagnostic</li>
+              <li>Fixed quote, no hourly billing</li>
+              <li>Warranty on every repair</li>
+            </ul>
+          </div>
+          <figure class="hero-figure">
+            <img
+              src="/images/hero.jpg"
+              alt="Technician repairing a laptop at the Denofix workbench"
+              width="900"
+              height="1125"
+            />
+            <figcaption>Repairs, upgrades and builds — all done in-house.</figcaption>
+          </figure>
+        </div>
+        <div class="container">
+          <div class="fault-strip">
+            <div class="fault-head">
+              <strong>Common faults we fix</strong>
+              <span>Walk in, message us, or post the device.</span>
+            </div>
+            <div class="fault-row">
+              <div class="panel-row"><span class="dot"></span> No power / no display</div>
+              <div class="panel-row"><span class="dot"></span> Cracked screen or dead battery</div>
+              <div class="panel-row"><span class="dot"></span> Slow, hot or crashing</div>
+              <div class="panel-row"><span class="dot"></span> Clicking drive, missing files</div>
+              <div class="panel-row"><span class="dot"></span> Water damage &amp; shorts</div>
+              <div class="panel-row"><span class="dot"></span> SSD or RAM upgrade</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Services</span>
+            <h2>Everything that keeps your machine running</h2>
+            <p class="lead">
+              From a five-minute SSD swap to component-level motherboard work — one
+              specialist, no queue of subcontractors.
+            </p>
+          </div>
+          <div class="grid grid-3">
+            {services.map((s) => (
+              <article class="card card-media">
+                <img class="card-img" src={s.img} alt={s.title} width="800" height="500" loading="lazy" />
+                <div class="card-body">
+                  <span class="num">{s.n}</span>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                  <p class="tag">{s.tags}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">How it works</span>
+            <h2>A repair process you can predict</h2>
+            <p class="lead">
+              No black box. You know what it costs, how long it takes and what happens
+              next at every stage.
+            </p>
+          </div>
+          <div class="grid grid-4">
+            {steps.map((s, i) => (
+              <article class="card step">
+                <span class="num">Step {i + 1}</span>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section gallery" id="workshop">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Inside the workshop</span>
+            <h2>Where your machine gets fixed</h2>
+            <p class="lead">
+              Real benches, real tools, no send-it-away middleman. Every job stays
+              with the same specialist from diagnostic to final test.
+            </p>
+          </div>
+          <div class="gallery-grid">
+            {gallery.map((g) => (
+              <figure class="shot">
+                <img src={g.src} alt={g.caption} width="700" height="525" loading="lazy" />
+                <figcaption>{g.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="pricing">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Pricing</span>
+            <h2>Fixed prices, agreed before we start</h2>
+            <p class="lead">
+              Every job is quoted up front against a written scope. If the scope does
+              not change, the price does not either.
+            </p>
+          </div>
+          <div class="grid grid-3">
+            {plans.map((p) => (
+              <article class:list={['card', 'plan', p.featured && 'plan-featured']}>
+                {p.featured && <span class="badge">Most common</span>}
+                <h3>{p.name}</h3>
+                <p class="best">{p.best}</p>
+                <p class="price">{p.price}</p>
+                <ul class="check-list">
+                  {p.points.map((pt) => <li>{pt}</li>)}
+                </ul>
+                <a class:list={['btn', p.featured ? 'btn-primary' : 'btn-ghost', 'plan-btn']} href="#contact">
+                  Request a quote
+                </a>
+              </article>
+            ))}
+          </div>
+          <p class="price-note">
+            Parts are charged at cost with fixed labour. You approve the total before
+            any part is ordered.
+          </p>
+        </div>
+      </section>
+
+      <section class="section duo">
+        <div class="container duo-inner">
+          <div>
+            <span class="eyebrow">Also from us</span>
+            <h2>deno solution — websites, web apps &amp; mobile apps</h2>
+            <p class="lead">
+              Denofix is the hardware side. When you need software, deno solution is
+              our primary business: custom websites, web and mobile apps, and backend
+              work, quoted the same way — scoped properly, fixed price in writing, and
+              you own the code.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://denosolution.com" target="_blank" rel="noopener">
+                Visit denosolution.com →
+              </a>
+              <a class="btn btn-ghost" href="mailto:myruldeen@gmail.com">Talk to us about a project</a>
+            </div>
+          </div>
+          <div class="duo-card card">
+            <h3>One team, both sides</h3>
+            <ul class="check-list">
+              <li>Hardware fixed at Denofix</li>
+              <li>Software built by deno solution</li>
+              <li>Same person, same fixed-quote approach</li>
+              <li>Store, booking or support site for your business</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">FAQ</span>
+            <h2>Questions we get asked</h2>
+          </div>
+          <div class="faq-list">
+            {faqs.map((f) => (
+              <details class="faq-item">
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-inner">
+          <div>
+            <span class="eyebrow">Get started</span>
+            <h2>Tell us what is broken</h2>
+            <p class="lead">
+              Send the model and the fault, or a photo of any damage. You get a free
+              diagnostic and a fixed quote before any work begins.
+            </p>
+            <ul class="contact-list">
+              <li>
+                <span class="label">Email</span>
+                <a href="mailto:hello@denofix.my">hello@denofix.my</a>
+              </li>
+              <li>
+                <span class="label">WhatsApp</span>
+                <a href="https://wa.me/60123456789" target="_blank" rel="noopener">+60 12-345 6789</a>
+              </li>
+              <li>
+                <span class="label">Service</span>
+                <span>Walk-in drop-off · Mail-in nationwide · On-site for offices</span>
+              </li>
+            </ul>
+          </div>
+          <form class="card contact-form" action="mailto:hello@denofix.my" method="post" enctype="text/plain">
+            <label>
+              Your name
+              <input type="text" name="name" placeholder="Name" required />
+            </label>
+            <label>
+              Email or phone
+              <input type="text" name="contact" placeholder="How we reach you" required />
+            </label>
+            <label>
+              Device &amp; problem
+              <textarea name="fault" rows="5" placeholder="e.g. Lenovo Legion — no power, LED blinks twice" required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send enquiry</button>
+            <p class="form-note">We reply within one working day. No spam, ever.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <img class="brand-logo" src="/images/logo-mark-128.png" alt="" width="128" height="128" />
+            Denofix
+          </a>
+          <p>PC and laptop repairs with a fixed quote before any work. Malaysia.</p>
+        </div>
+        <nav class="footer-col" aria-label="Services">
+          <h4>Services</h4>
+          <a href="#services">Laptop repair</a>
+          <a href="#services">PC &amp; desktop repair</a>
+          <a href="#services">Data recovery</a>
+          <a href="#services">Custom PC builds</a>
+        </nav>
+        <nav class="footer-col" aria-label="Company">
+          <h4>Company</h4>
+          <a href="#process">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <nav class="footer-col" aria-label="Elsewhere">
+          <h4>Elsewhere</h4>
+          <a href="https://denosolution.com" target="_blank" rel="noopener">deno solution</a>
+          <a href="mailto:hello@denofix.my">hello@denofix.my</a>
+          <a href="https://wa.me/60123456789" target="_blank" rel="noopener">WhatsApp</a>
+        </nav>
+      </div>
+      <div class="container footer-base">
+        <span>© 2026 Denofix. All rights reserved.</span>
+        <span>Hardware by Denofix · Software by deno solution</span>
+      </div>
+    </footer>
+
+    <style>
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        height: 72px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: -0.01em;
+      }
+
+      .brand-logo {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .nav {
+        display: flex;
+        gap: 26px;
+        margin-left: auto;
+        font-size: 15px;
+        color: var(--muted);
+      }
+
+      .nav a:hover {
+        color: var(--text);
+      }
+
+      .header-cta {
+        padding: 10px 20px;
+      }
+
+      .hero {
+        padding: 96px 0 88px;
+        background:
+          radial-gradient(720px 340px at 12% 0%, rgba(37, 99, 235, 0.08), transparent 70%),
+          radial-gradient(600px 300px at 90% 25%, rgba(21, 128, 61, 0.06), transparent 70%),
+          var(--bg);
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 56px;
+        align-items: center;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 32px;
+      }
+
+      .hero-points {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 26px;
+        list-style: none;
+        margin-top: 34px;
+        color: var(--muted);
+        font-size: 14.5px;
+      }
+
+      .hero-points li {
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .hero-points li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success);
+        font-weight: 700;
+      }
+
+      .hero-figure {
+        position: relative;
+        border: 1px solid var(--border);
+        background: var(--card);
+        box-shadow: 0 18px 44px rgba(16, 24, 40, 0.12);
+      }
+
+      .hero-figure img {
+        width: 100%;
+        height: min(560px, 62vh);
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-figure figcaption {
+        padding: 13px 18px;
+        font-size: 14px;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+      }
+
+      .fault-strip {
+        margin-top: 56px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+      }
+
+      .fault-head {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 16px 22px;
+        border-bottom: 1px solid var(--border);
+        font-size: 15px;
+      }
+
+      .fault-head span {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .fault-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .fault-row .panel-row {
+        padding: 15px 22px;
+        border-bottom: none;
+        border-right: 1px dashed var(--border);
+        font-size: 14.5px;
+      }
+
+      .panel-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text);
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 0;
+        background: var(--accent);
+        flex: none;
+      }
+
+      .card-media {
+        padding: 0;
+        overflow: hidden;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+      }
+
+      .card-media:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 30px rgba(16, 24, 40, 0.12);
+      }
+
+      .card-img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        display: block;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .card-body {
+        padding: 24px 26px 28px;
+      }
+
+      .gallery {
+        background: var(--bg-soft);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+      }
+
+      .shot {
+        background: var(--card);
+        border: 1px solid var(--border);
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+      }
+
+      .shot img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        display: block;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .shot figcaption {
+        padding: 12px 16px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .tag {
+        margin-top: 16px;
+        font-size: 13px !important;
+        color: var(--accent) !important;
+        letter-spacing: 0.02em;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .step .num {
+        color: var(--muted);
+      }
+
+      .plan {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      .plan-featured {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 1px var(--accent);
+      }
+
+      .badge {
+        position: absolute;
+        top: -12px;
+        left: 24px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 3px 12px;
+        border-radius: 0;
+      }
+
+      .plan .best {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .plan .price {
+        margin: 18px 0 4px;
+        font-size: 1.7rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .plan .check-list {
+        flex: 1;
+      }
+
+      .plan-btn {
+        margin-top: 26px;
+        justify-content: center;
+      }
+
+      .price-note {
+        margin-top: 30px;
+        color: var(--muted);
+        font-size: 14.5px;
+      }
+
+      .duo-inner {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .duo {
+        background: var(--bg-soft);
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 12px;
+        max-width: 820px;
+      }
+
+      .faq-item {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 4px 24px;
+      }
+
+      .faq-item summary {
+        cursor: pointer;
+        font-weight: 600;
+        padding: 18px 0;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-item summary::after {
+        content: "+";
+        color: var(--accent);
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+
+      .faq-item[open] summary::after {
+        content: "–";
+      }
+
+      .faq-item p {
+        color: var(--muted);
+        padding-bottom: 20px;
+        font-size: 15.5px;
+      }
+
+      .contact-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      .contact-list {
+        list-style: none;
+        display: grid;
+        gap: 18px;
+        margin-top: 34px;
+      }
+
+      .contact-list .label {
+        display: block;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        margin-bottom: 3px;
+      }
+
+      .contact-list a {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .contact-form {
+        display: grid;
+        gap: 16px;
+      }
+
+      .contact-form label {
+        display: grid;
+        gap: 7px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 0;
+        color: var(--text);
+        font: inherit;
+        font-size: 15px;
+        padding: 12px 14px;
+        resize: vertical;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+
+      .form-note {
+        font-size: 13.5px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--border);
+        background: var(--bg-soft);
+        padding-top: 64px;
+      }
+
+      .footer-inner {
+        display: grid;
+        grid-template-columns: 1.6fr repeat(3, 1fr);
+        gap: 40px;
+        padding-bottom: 48px;
+      }
+
+      .footer-brand p {
+        color: var(--muted);
+        font-size: 14.5px;
+        margin-top: 16px;
+        max-width: 320px;
+      }
+
+      .footer-col {
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+
+      .footer-col h4 {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      .footer-col a {
+        font-size: 15px;
+        color: var(--text);
+      }
+
+      .footer-col a:hover {
+        color: var(--accent);
+      }
+
+      .footer-base {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        border-top: 1px solid var(--border);
+        padding: 22px 24px;
+        color: var(--muted);
+        font-size: 13.5px;
+      }
+
+      @media (max-width: 900px) {
+        .hero-inner,
+        .duo-inner,
+        .contact-inner {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .hero-figure img {
+          height: 320px;
+        }
+
+        .fault-row .panel-row {
+          border-right: none;
+          border-bottom: 1px dashed var(--border);
+        }
+
+        .footer-inner {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .nav {
+          display: none;
+        }
+
+        .header-cta {
+          margin-left: auto;
+        }
+      }
+    </style>
+  </body>
+</html>
