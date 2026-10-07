@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "deploy": "astro build && wrangler pages deploy dist"
+    "preview": "astro preview"
   },
   "dependencies": {
     "astro": "^5.0.0"
@@ -15,7 +14,6 @@
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.3",
-    "tailwindcss": "^4.3.3",
-    "wrangler": "^4.86.0"
+    "tailwindcss": "^4.3.3"
   }
 }

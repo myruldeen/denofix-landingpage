@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
 
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 const email = 'myruldeen@gmail.com';
 const phone = '+60 17-396 3174';
 const whatsapp = phone.replace(/\D/g, '');
@@ -24,52 +27,52 @@ const services = [
   {
     n: '01',
     title: 'Laptop Repair',
-    img: '/images/svc-laptop.jpg',
+    img: 'images/svc-laptop.jpg',
     body: 'Screen, hinge, keyboard, battery and charging port replacement, plus no-power and no-display faults.',
     tags: 'MacBook · Gaming · Ultrabook · Business'
   },
   {
     n: '02',
     title: 'PC & Desktop Repair',
-    img: '/images/svc-desktop.jpg',
+    img: 'images/svc-desktop.jpg',
     body: 'Part replacement, motherboard-level repair and no-boot troubleshooting for desktops and all-in-ones.',
     tags: 'Custom PC · iMac · AIO · Workstation'
   },
   {
     n: '03',
     title: 'Upgrades & SSD Installs',
-    img: '/images/svc-upgrade.jpg',
+    img: 'images/svc-upgrade.jpg',
     body: 'SSD and RAM upgrades, thermal paste, Windows or macOS reinstalls, drivers and a full health check after.',
     tags: 'Same-day on most upgrades'
   },
   {
     n: '04',
     title: 'Data Recovery',
-    img: '/images/svc-data.jpg',
+    img: 'images/svc-data.jpg',
     body: 'Sector repair and data recovery from hard disks, SSDs, pendrives and memory cards, including clicking drives.',
     tags: 'HDD · SSD · USB · Memory card'
   },
   {
     n: '05',
     title: 'Custom PC Builds',
-    img: '/images/svc-custom.jpg',
+    img: 'images/svc-custom.jpg',
     body: 'Full builds for office, gaming or editing. Part-picked to your budget, assembled, stress-tested and documented.',
     tags: 'Parts sourced and tested'
   },
   {
     n: '06',
     title: 'Office & Small Business',
-    img: '/images/svc-office.jpg',
+    img: 'images/svc-office.jpg',
     body: 'Workstation setup, backups, network fixes and an ongoing maintenance plan so your team stops losing hours to broken machines.',
     tags: 'On-site or drop-off'
   }
 ];
 
 const gallery = [
-  { src: '/images/shop-1.jpg', caption: 'Bench diagnostics' },
-  { src: '/images/shop-2.jpg', caption: 'Component-level soldering' },
-  { src: '/images/shop-3.jpg', caption: 'Disassembly & part swaps' },
-  { src: '/images/shop-4.jpg', caption: 'Motherboard repair' }
+  { src: 'images/shop-1.jpg', caption: 'Bench diagnostics' },
+  { src: 'images/shop-2.jpg', caption: 'Component-level soldering' },
+  { src: 'images/shop-3.jpg', caption: 'Disassembly & part swaps' },
+  { src: 'images/shop-4.jpg', caption: 'Motherboard repair' }
 ];
 
 const steps = [
@@ -175,7 +178,7 @@ const faqs = [
       name="description"
       content="Denofix repairs, upgrades and builds PCs and laptops. Free diagnostic, fixed quote before any work, warranty on every repair. Mail-in and walk-in."
     />
-    <link rel="canonical" href={new URL('/', Astro.site).href} />
+    <link rel="canonical" href={new URL(base, Astro.site).href} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Denofix" />
     <meta property="og:title" content="Denofix — PC & Laptop Repair Specialist" />
@@ -183,8 +186,8 @@ const faqs = [
       property="og:description"
       content="Free diagnostic, fixed quote before any work, warranty 1 month on every repair. Laptop and desktop repair, data recovery and custom PC builds in Malaysia."
     />
-    <meta property="og:url" content={new URL('/', Astro.site).href} />
-    <meta property="og:image" content={new URL('/images/og.png', Astro.site).href} />
+    <meta property="og:url" content={new URL(base, Astro.site).href} />
+    <meta property="og:image" content={new URL(`${base}images/og.png`, Astro.site).href} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -193,16 +196,16 @@ const faqs = [
       name="twitter:description"
       content="Free diagnostic, fixed quote before any work, warranty 1 month on every repair. Laptop and desktop repair, data recovery and custom PC builds in Malaysia."
     />
-    <meta name="twitter:image" content={new URL('/images/og.png', Astro.site).href} />
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="twitter:image" content={new URL(`${base}images/og.png`, Astro.site).href} />
+    <link rel="icon" href={`${base}favicon.ico`} sizes="48x48" />
+    <link rel="icon" type="image/png" href={`${base}favicon.png`} />
+    <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
     <meta name="theme-color" content="#2563eb" />
   </head>
   <body>    <header class="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur-[12px]">
       <div class="wrap flex h-[72px] items-center gap-7">
         <a class="inline-flex items-center gap-2.5 text-[1.05rem] font-bold tracking-[-0.01em] text-ink" href="#top" aria-label="Denofix home">
-          <img class="block h-9 w-9 object-contain" src="/images/logo-mark-128.png" alt="" width="128" height="128" />
+          <img class="block h-9 w-9 object-contain" src={`${base}images/logo-mark-128.png`} alt="" width="128" height="128" />
           Denofix
         </a>
         <nav class="ml-auto hidden gap-[26px] text-[15px] text-muted min-[900px]:flex" aria-label="Main">
@@ -238,7 +241,7 @@ const faqs = [
           <figure class="relative border border-line bg-white shadow-[0_18px_44px_rgba(16,24,40,0.12)]">
             <img
               class="block h-[min(560px,62vh)] w-full object-cover max-[900px]:h-80"
-              src="/images/hero.jpg"
+              src={`${base}images/hero.jpg`}
               alt="Technician repairing a laptop at the Denofix workbench"
               width="900"
               height="1125"
@@ -289,7 +292,7 @@ const faqs = [
           <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <article class="overflow-hidden border border-line bg-white shadow-[0_1px_2px_rgba(16,24,40,0.05)] transition duration-200 hover:-translate-y-[3px] hover:shadow-[0_14px_30px_rgba(16,24,40,0.12)]">
-                <img class="block aspect-[16/10] w-full border-b border-line object-cover" src={s.img} alt={s.title} width="800" height="500" loading="lazy" />
+                <img class="block aspect-[16/10] w-full border-b border-line object-cover" src={`${base}${s.img}`} alt={s.title} width="800" height="500" loading="lazy" />
                 <div class="px-[26px] pb-7 pt-6">
                   <span class="mb-3.5 block text-[13px] font-bold tracking-[0.08em] text-brand">{s.n}</span>
                   <h3 class="mb-2.5 text-[1.15rem] font-bold">{s.title}</h3>
@@ -337,7 +340,7 @@ const faqs = [
           <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {gallery.map((g) => (
               <figure class="border border-line bg-white shadow-[0_1px_2px_rgba(16,24,40,0.05)]">
-                <img class="block aspect-[4/3] w-full border-b border-line object-cover" src={g.src} alt={g.caption} width="700" height="525" loading="lazy" />
+                <img class="block aspect-[4/3] w-full border-b border-line object-cover" src={`${base}${g.src}`} alt={g.caption} width="700" height="525" loading="lazy" />
                 <figcaption class="px-4 py-3 text-sm text-muted">{g.caption}</figcaption>
               </figure>
             ))}
@@ -500,7 +503,7 @@ const faqs = [
       <div class="wrap grid gap-10 pb-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
         <div>
           <a class="inline-flex items-center gap-2.5 text-[1.05rem] font-bold tracking-[-0.01em] text-ink" href="#top">
-            <img class="block h-9 w-9 object-contain" src="/images/logo-mark-128.png" alt="" width="128" height="128" />
+            <img class="block h-9 w-9 object-contain" src={`${base}images/logo-mark-128.png`} alt="" width="128" height="128" />
             Denofix
           </a>
           <p class="mt-4 max-w-[320px] text-[14.5px] text-muted">PC and laptop repairs with a fixed quote before any work. Malaysia.</p>
