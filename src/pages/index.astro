@@ -5,6 +5,13 @@ const email = 'myruldeen@gmail.com';
 const phone = '+60 17-396 3174';
 const whatsapp = phone.replace(/\D/g, '');
 
+const address = {
+  line1: 'No 32, Jalan Belimbing Besi 5/KU 10',
+  line2: 'Taman Meru Damai',
+  line3: 'Meru, Klang'
+};
+const addressLine = `${address.line1}, ${address.line2}, ${address.line3}`;
+
 const nav = [
   { href: '#services', label: 'Services' },
   { href: '#process', label: 'Process' },
@@ -138,7 +145,7 @@ const faqs = [
   },
   {
     q: 'Can I post my device to you?',
-    a: 'Yes. Pack the device well, include a note with your contact details and the fault, and post it to our mail-in address: No 32, Jalan Belimbing Besi 5/KU 10, Taman Meru Damai, Meru. We quote before repairing and post it back once it is tested.'
+    a: `Yes. Pack the device well, include a note with your contact details and the fault, and post it to our mail-in address: ${addressLine}. We quote before repairing and post it back once it is tested.`
   },
   {
     q: 'What warranty do I get?',
@@ -462,9 +469,9 @@ const faqs = [
               <li>
                 <span class="mb-[3px] block text-[13px] uppercase tracking-[0.1em] text-muted">Mail-in address</span>
                 <address class="text-[15.5px] not-italic leading-[1.6] text-ink">
-                  No 32, Jalan Belimbing Besi 5/KU 10<br />
-                  Taman Meru Damai<br />
-                  Meru
+                  {address.line1}<br />
+                  {address.line2}<br />
+                  {address.line3}
                 </address>
               </li>
             </ul>
