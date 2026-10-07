@@ -1,22 +1,13 @@
 ---
 import '../styles/global.css';
-
-const email = 'myruldeen@gmail.com';
-const phone = '+60 17-396 3174';
-const whatsapp = phone.replace(/\D/g, '');
-
-const address = {
-  line1: 'No 32, Jalan Belimbing Besi 5/KU 10',
-  line2: 'Taman Meru Damai',
-  line3: 'Meru, Klang'
-};
-const addressLine = `${address.line1}, ${address.line2}, ${address.line3}`;
+import PostDeviceSteps from '../components/PostDeviceSteps.astro';
+import { email, phone, whatsapp, address, addressLine } from '../consts';
 
 const nav = [
   { href: '#services', label: 'Services' },
-  { href: '#process', label: 'Process' },
   { href: '#pricing', label: 'Pricing' },
   { href: '#faq', label: 'FAQ' },
+  { href: '#mail-in', label: 'Post-in' },
   { href: '#contact', label: 'Contact' }
 ];
 
@@ -46,7 +37,7 @@ const services = [
     n: '04',
     title: 'Data Recovery',
     img: '/images/svc-data.jpg',
-    body: 'Sector repair and data recovery from hard disks, SSDs, pendrives and memory cards, including clicking drives.',
+    body: 'Sector repair and data recovery from hard disks, SSDs, pendrives and memory cards, including dead/not spinning drives.',
     tags: 'HDD · SSD · USB · Memory card'
   },
   {
@@ -70,25 +61,6 @@ const gallery = [
   { src: '/images/shop-2.jpg', caption: 'Component-level soldering' },
   { src: '/images/shop-3.jpg', caption: 'Disassembly & part swaps' },
   { src: '/images/shop-4.jpg', caption: 'Motherboard repair' }
-];
-
-const steps = [
-  {
-    title: 'Tell us what is wrong',
-    body: 'Walk in, send a message, or post the device to us. A short description and a photo of the fault is enough to start.'
-  },
-  {
-    title: 'Free diagnostic, fixed quote',
-    body: 'We find the actual cause first, then send you a fixed price in writing. No hourly billing, no surprise invoice.'
-  },
-  {
-    title: 'We fix it, only once you approve',
-    body: 'Nothing is touched until you say go. If a repair is not worth the cost, we tell you that instead of taking the job.'
-  },
-  {
-    title: 'Tested, then collect or ship back',
-    body: 'Every machine is stress-tested before it leaves. Collect in person or we post it back, with a warranty on the work.'
-  }
 ];
 
 const plans = [
@@ -263,7 +235,7 @@ const faqs = [
                 <span class="h-2 w-2 flex-none bg-brand"></span> Slow, hot or crashing
               </div>
               <div class="flex items-center gap-3 border-r border-dashed border-line px-[22px] py-[15px] text-[14.5px] text-ink max-[900px]:border-r-0 max-[900px]:border-b">
-                <span class="h-2 w-2 flex-none bg-brand"></span> Clicking drive, missing files
+                <span class="h-2 w-2 flex-none bg-brand"></span> HDD not spinning, missing files
               </div>
               <div class="flex items-center gap-3 border-r border-dashed border-line px-[22px] py-[15px] text-[14.5px] text-ink max-[900px]:border-r-0 max-[900px]:border-b">
                 <span class="h-2 w-2 flex-none bg-brand"></span> Water damage &amp; shorts
@@ -276,7 +248,7 @@ const faqs = [
         </div>
       </section>
 
-      <section class="border-t border-line py-24 max-md:py-[68px]" id="services">
+      <section class="border-t border-line bg-soft py-24 max-md:py-[68px]" id="services">
         <div class="wrap">
           <div class="mb-14 max-w-[720px]">
             <span class="mb-4 inline-block text-[13px] font-semibold uppercase tracking-[0.12em] text-brand">Services</span>
@@ -302,27 +274,7 @@ const faqs = [
         </div>
       </section>
 
-      <section class="border-t border-line py-24 max-md:py-[68px]" id="process">
-        <div class="wrap">
-          <div class="mb-14 max-w-[720px]">
-            <span class="mb-4 inline-block text-[13px] font-semibold uppercase tracking-[0.12em] text-brand">How it works</span>
-            <h2 class="mb-[18px] text-[clamp(1.9rem,4vw,2.75rem)] font-bold">A repair process you can predict</h2>
-            <p class="max-w-[640px] text-[clamp(1.05rem,2vw,1.2rem)] text-muted">
-              No black box. You know what it costs, how long it takes and what happens
-              next at every stage.
-            </p>
-          </div>
-          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((s, i) => (
-              <article class="border border-line bg-white p-7 shadow-[0_1px_2px_rgba(16,24,40,0.05)]">
-                <span class="mb-3.5 block text-[13px] font-bold tracking-[0.08em] text-muted">Step {i + 1}</span>
-                <h3 class="mb-2.5 text-[1.15rem] font-bold">{s.title}</h3>
-                <p class="text-[15px] text-muted">{s.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PostDeviceSteps />
 
       <section class="border-t border-line bg-soft py-24 max-md:py-[68px]" id="workshop">
         <div class="wrap">
@@ -395,37 +347,7 @@ const faqs = [
         </div>
       </section>
 
-      <section class="border-t border-line bg-soft py-24 max-md:py-[68px]">
-        <div class="wrap grid items-center gap-12 max-[900px]:grid-cols-1 max-[900px]:gap-10 lg:grid-cols-[1.4fr_1fr]">
-          <div>
-            <span class="mb-4 inline-block text-[13px] font-semibold uppercase tracking-[0.12em] text-brand">Also from us</span>
-            <h2 class="mb-[18px] text-[clamp(1.9rem,4vw,2.75rem)] font-bold">deno solution — websites, web apps &amp; mobile apps</h2>
-            <p class="max-w-[640px] text-[clamp(1.05rem,2vw,1.2rem)] text-muted">
-              Denofix is the hardware side. When you need software, deno solution is
-              our primary business: custom websites, web and mobile apps, and backend
-              work, quoted the same way — scoped properly, fixed price in writing, and
-              you own the code.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-3.5">
-              <a class="inline-flex items-center gap-2 border border-transparent bg-brand px-6 py-[13px] text-[15px] font-semibold text-white transition duration-150 hover:-translate-y-0.5 hover:bg-brand-hover" href="https://denosolution.com" target="_blank" rel="noopener">
-                Visit denosolution.com →
-              </a>
-              <a class="inline-flex items-center gap-2 border border-line px-6 py-[13px] text-[15px] font-semibold text-ink transition duration-150 hover:-translate-y-0.5 hover:border-muted" href={`mailto:${email}`}>Talk to us about a project</a>
-            </div>
-          </div>
-          <div class="border border-line bg-white p-7 shadow-[0_1px_2px_rgba(16,24,40,0.05)]">
-            <h3 class="mb-2.5 text-[1.15rem] font-bold">One team, both sides</h3>
-            <ul class="mt-5 grid list-none gap-3">
-              <li class="relative pl-7 text-[15px] text-muted before:absolute before:left-0 before:font-bold before:text-ok before:content-['✓']">Hardware fixed at Denofix</li>
-              <li class="relative pl-7 text-[15px] text-muted before:absolute before:left-0 before:font-bold before:text-ok before:content-['✓']">Software built by deno solution</li>
-              <li class="relative pl-7 text-[15px] text-muted before:absolute before:left-0 before:font-bold before:text-ok before:content-['✓']">Same person, same fixed-quote approach</li>
-              <li class="relative pl-7 text-[15px] text-muted before:absolute before:left-0 before:font-bold before:text-ok before:content-['✓']">Store, booking or support site for your business</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="border-t border-line py-24 max-md:py-[68px]" id="faq">
+      <section class="border-t border-line bg-soft py-24 max-md:py-[68px]" id="faq">
         <div class="wrap">
           <div class="mb-14 max-w-[720px]">
             <span class="mb-4 inline-block text-[13px] font-semibold uppercase tracking-[0.12em] text-brand">FAQ</span>
@@ -514,7 +436,7 @@ const faqs = [
         </nav>
         <nav class="grid content-start gap-2.5" aria-label="Company">
           <h4 class="mb-1.5 text-[13px] font-bold uppercase tracking-[0.1em] text-muted">Company</h4>
-          <a class="text-[15px] text-ink transition-colors hover:text-brand" href="#process">How it works</a>
+          <a class="text-[15px] text-ink transition-colors hover:text-brand" href="#mail-in">Post-in repair</a>
           <a class="text-[15px] text-ink transition-colors hover:text-brand" href="#pricing">Pricing</a>
           <a class="text-[15px] text-ink transition-colors hover:text-brand" href="#faq">FAQ</a>
           <a class="text-[15px] text-ink transition-colors hover:text-brand" href="#contact">Contact</a>
