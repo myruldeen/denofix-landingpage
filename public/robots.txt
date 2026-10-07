@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://myruldeen.github.io/denofix-landingpage/sitemap-index.xml
+Sitemap: https://denofix.my/sitemap-index.xml

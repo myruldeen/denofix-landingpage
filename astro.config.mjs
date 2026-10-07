@@ -3,8 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://myruldeen.github.io',
-  base: '/denofix-landingpage',
+  site: 'https://denofix.my',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]
